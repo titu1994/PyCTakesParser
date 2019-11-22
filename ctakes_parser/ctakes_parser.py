@@ -17,20 +17,20 @@ def _safe_cast(cast, val):
     return val
 
 
-def parse_dir(directory_path, out_directory_path):
-    if not os.path.exists(directory_path):
-        raise FileNotFoundError("Directory not found at {}!".format(directory_path))
+def parse_dir(in_directory_path, out_directory_path):
+    if not os.path.exists(in_directory_path):
+        raise FileNotFoundError("Directory not found at {}!".format(in_directory_path))
 
-    if not os.path.isdir(directory_path):
-        raise NotADirectoryError("Provided path {} is not a directory !".format(directory_path))
+    if not os.path.isdir(in_directory_path):
+        raise NotADirectoryError("Provided path {} is not a directory !".format(in_directory_path))
 
     if not os.path.exists(out_directory_path):
         os.makedirs(out_directory_path)
 
-    files = sorted(glob.glob(os.path.join(directory_path, "*")))
+    files = sorted(glob.glob(os.path.join(in_directory_path, "*")))
     num_files = len(files)
 
-    print("Parsing {} files from directory {}".format(num_files, directory_path))
+    print("Parsing {} files from directory {}".format(num_files, in_directory_path))
     print("-" * 100)
     print()
 
