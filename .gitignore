@@ -1,2 +1,3 @@
 # Project exclude paths
 /tests/notes_out/
+**/__pycache__
