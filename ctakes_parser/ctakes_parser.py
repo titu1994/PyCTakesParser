@@ -13,7 +13,10 @@ from ctakes_parser import helpers
 
 def _safe_cast(cast, val):
     if val is not None:
-        val = cast(val)
+        if cast is bool:
+            val = True if val.lower() == "true" else False
+        else:
+            val = cast(val)
     return val
 
 
