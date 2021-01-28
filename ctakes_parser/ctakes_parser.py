@@ -92,6 +92,7 @@ def parse_file(file_path) -> pd.DataFrame:
             id = _safe_cast(int, child.get('{http://www.omg.org/XMI}id', None))
             tui = child.get('tui', None)
             score = _safe_cast(float, child.get('score', None))
+            code = child.get('code', None)
 
             results.update_val_at(id, 'refsem', name)
             results.update_val_at(id, 'cui', cui)
@@ -99,6 +100,7 @@ def parse_file(file_path) -> pd.DataFrame:
             results.update_val_at(id, 'scheme', scheme)
             results.update_val_at(id, 'tui', tui)
             results.update_val_at(id, 'score', score)
+            results.update_val_at(id, 'code', code)
 
         if 'http:///org/apache/ctakes/typesystem/type/syntax.ecore' in namespace_keys:
             name = etree.QName(child.tag).localname
