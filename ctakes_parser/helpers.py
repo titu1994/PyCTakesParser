@@ -33,7 +33,7 @@ class ResultDataframeModule(BaseDataframeModule):
         self._index = defaultdict(list)
 
     def insert(self, textsem=None, refsem=None, id=None, pos_start=None, pos_end=None, cui=None, negated=None,
-               preferred_text=None, scheme=None, tui=None, score=None, confidence=None, uncertainty=None,
+               preferred_text=None, scheme=None, code=None, tui=None, score=None, confidence=None, uncertainty=None,
                conditional=None, generic=None, subject=None):
 
         for k, v in locals().items():
