@@ -132,6 +132,10 @@ def parse_file(file_path) -> pd.DataFrame:
     results['true_text'] = results.apply(_positional_search, axis=1)
 
     pos_df_subset = positions[['part_of_speech', 'pos_start']]
-    final_df = pd.merge(results, pos_df_subset, on='pos_start', how='left')
-
+    try:
+        final_df = pd.merge(results, pos_df_subset, on='pos_start', how='left')
+    except:
+        empty_list = {'NA': [-1, -1], 'NA': [-1, -1]}
+        final_df = pd.DataFrame(data=empty_list)
+    
     return final_df
